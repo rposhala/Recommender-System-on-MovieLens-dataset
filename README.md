@@ -25,7 +25,23 @@ Recommender System is a vast concept rooted from a base idea of giving out sugge
 
 **Hybrid recommender system** combines more than one of these techniques to resolve one or more problems. This approach can be used to overcome some of the common problems in recommender systems such as cold start and the sparsity problem in collaborative approach, as well as the knowledge engineering bottleneck in knowledge-based approaches. It is proved that hybrid recommender system performs extremely well compared to pure collaborative and content based methods.
 
+## About Dataset used
 
+[MovieLens 100K dataset](https://grouplens.org/datasets/movielens/100k/) has been used for this project. MovieLens is a rating dataset from the MovieLens website, which has been
+collected over some period. Stable benchmark dataset. 100,000 ratings from 1000 users on 1700 movies. Released on 4/1998. Further information regarding this dataset can be found [here](http://files.grouplens.org/datasets/movielens/ml-100k-README.txt).
 
+A little about the dataset:
+
+MovieLens data sets were collected by the GroupLens Research Project at the University of Minnesota.
+ 
+This data set consists of:
+	- 100,000 ratings (1-5) from 943 users on 1682 movies. 
+	- Each user has rated at least 20 movies. 
+  - Simple demographic info for the users (age, gender, occupation, zip)
+
+About few components loaded from the package which are used in this project: 
+
+u.data     -- The full u data set, 100000 ratings by 943 users on 1682 items.
+              Each user has rated at least 20 movies. Users and items are numbered consecutively from 1. The data is randomly ordered. This is a tab separated list of user id | item id | rating | timestamp. 
 
 
