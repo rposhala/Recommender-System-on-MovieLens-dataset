@@ -2,6 +2,9 @@
 ## Project Overview
 Knowledge-based, Content-based and Collaborative Recommender systems are built on MovieLens dataset with 100,000 movie ratings using Pandas operations and by fitting KNN, SVD & deep learning models along with NLP techniques usage to suggest movies for the users based on similar users and for queries specific to genre, user, movie, rating, popularity.
 
+![GitHub Logo](Images/netflix-recommendation-s.JPEG)
+Format: ![Alt Text](url)
+
 ## Recommender System Overview
 A recommender system is a subclass of information filtering system that seeks to predict the "rating" or "preference" a user would give to an item. Recommender systems are utilized in a variety of areas including movies, music, news, social tags, and products in general. Recommender systems typically produce a list of recommendations and there are few ways in which it can be done. Two of the most popyular ways are – through collaborative filtering or through content-based filtering.
 
@@ -14,6 +17,10 @@ There are majorly six types of recommender systems which work primarily in the M
 - Hybrid recommender system
 - Demographic based recommender system
 - Utility based recommender system
+
+
+![GitHub Logo](Images/coll-cont-pic.PNG)
+Format: ![Alt Text](url)
 
 Recommender System is a vast concept rooted from a base idea of giving out suggestions to the users. There are wide range of algorithms are used to build a recommender system and the type of recommender system used is mostly dictated by the type of data available. In this project, first three of the above recommender systems were built.
 
@@ -55,11 +62,22 @@ About few components loaded from the package which are used in this project:
 Data has been loaded into dataframes using pandas. It had been analyzed and visualized to draw some key insights before going further into recommendations.
 
 
+![GitHub Logo](Images/bar-plot.PNG)
+Format: ![Alt Text](url)
+
 Observation: We can observe that most of the users have rewarded movies they watched with a 4 star rating and followed by 3 star and 5 star.
 
 The same has been displayed below using a pie chart to understand the constributions.
 
+
+![GitHub Logo](Images/pie.PNG)
+Format: ![Alt Text](url)
+
 Genre based number of movies count is being plotted using bar-graph:
+
+
+![GitHub Logo](Images/genre-bar-plot.PNG)
+Format: ![Alt Text](url)
 
 We can see that most of the movies belong to movie genre : Drama followed by Comedy then Action, Romance and Thriller
 
