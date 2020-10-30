@@ -63,9 +63,28 @@ Genre based number of movies count is being plotted using bar-graph:
 
 We can see that most of the movies belong to movie genre : Drama followed by Comedy then Action, Romance and Thriller
 
-It had been observed 
+#### Dataframes formed and used: 
+items_dataset (movie id, movie name, and all genres); dataset (user id, movie id, rating); movie_dataset is a subset of items_dataset (it has movie id, movie name); Both movie_dataset and dataset are merged based on movie id and new merged_dataset is formed (user id, movie id, rating, movie name); a new dataframe is formed by averaging the overall rating available to a movie from the merged_dataset, are sorted with descending order of ratings and is named avg_rating_dataset (movie name, avg rating); 
 
 ## Knowledge based Recommender System
 
-Recommendations are made based on the 
+Recommendations are made based on the available items and their corresponding ratings data, considering we have no user data available.
+
+Data manipulations are done using **Pandas**
+
+ - A General no brainer suggestions of movies made based on high average ratings:
+ 
+ ```
+movie title			avg rating
+Marlene Dietrich: Shadow and Light (1996)	5.0
+Prefontaine (1997)	5.0
+Santa with Muscles (1996)	5.0
+Star Kid (1997)	5.0
+Someone Else's America (1995)	5.0
+Entertaining Angels: The Dorothy Day Story (1996)	5.0
+Saint of Fort Washington, The (1993)	5.0
+
+ ```
+
+
 
