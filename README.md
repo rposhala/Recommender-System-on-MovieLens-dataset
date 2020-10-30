@@ -274,11 +274,14 @@ This dataframe is then fed into a KNN model.
 
 We will train the KNN model inorder to find the closely matching similar users to the user we give as input and we recommend the top movies which would interest the input user.
 
-	- Picking similar users for a given input User id.
-	With the help of the KNN model built, we could get desired number of top similar users. For example, lets's consider User: 778
+1. Now we need to pick similar users for the given input User id
+2. Then pick the highly rated popular movies among the movies watched by similar users. (Weightage has assigned based on the cosine distance)
+3. Excluding the movies which are already seen by the input User and also the movies which are not at all seen by any of the similar users but are still in the list. (This is a crucial step as it could defeat the whole point of building a recommender system)
+
+With the help of the KNN model built, we could get desired number of top similar users. For example, lets's consider User: 778
 	
-	```
-	 Few of movies seen by the User:
+```
+Few of movies seen by the User:
 ['Amityville Horror, The (1979)',
  'Angels in the Outfield (1994)',
  'Apocalypse Now (1979)',
@@ -297,3 +300,125 @@ Top 5 users who are very much similar to the User- 778 are:
 4 . User: 738 separated by distance of 0.5916272517988691
 5 . User: 653 separated by distance of 0.5991479757406326
 ```
+Now we will have to pick the top movies to recommend.
+
+One way would be by taking the average of the existing ratings given by the similar users and picking the top 10 or 15 movies to recommend to our current user.
+
+But I feel recommendation would be more effective if we define weights to ratings by each similar user based on the thier distance from the input user. Defining these weights would give us the accurate recommendations by eliminating the chance of decision manipulation by the users who are relatively very far from the input user.
+
+Functionality was defined to overcome below **Challenges**:
+1. Recommends movies which are already seen by the given input User.
+2. There is a possibility of recommending the movies which are not at all seen by any of the similar users.
+
+*Results for a User id: 307; number of similar users to be considered: 15; Enter number of movies to be recommended: 15 are:
+```
+Top 15 users who are very much similar to the User- 307 are: 
+ 
+1 . User: 70 separated by distance of 0.4560883724650484
+2 . User: 738 separated by distance of 0.4846662001127756
+3 . User: 922 separated by distance of 0.503221313979523
+4 . User: 407 separated by distance of 0.5038250337403114
+5 . User: 514 separated by distance of 0.5060750098353226
+6 . User: 44 separated by distance of 0.5160506271876224
+7 . User: 660 separated by distance of 0.5165826487301209
+8 . User: 5 separated by distance of 0.5211146313938015
+9 . User: 457 separated by distance of 0.5309167131718452
+10 . User: 23 separated by distance of 0.5316197783536492
+11 . User: 843 separated by distance of 0.5324703658288387
+12 . User: 64 separated by distance of 0.53318921205275
+13 . User: 198 separated by distance of 0.535682894616484
+14 . User: 815 separated by distance of 0.5416036160331636
+15 . User: 95 separated by distance of 0.5468066886836396
+
+
+Movies recommended based on similar users are: 
+
+["Schindler's List (1993)",
+ 'Liar Liar (1997)',
+ 'When Harry Met Sally... (1989)',
+ 'Leaving Las Vegas (1995)',
+ 'Silence of the Lambs, The (1991)',
+ 'Dead Man Walking (1995)',
+ 'Trainspotting (1996)',
+ 'Forrest Gump (1994)',
+ 'Scream (1996)',
+ 'Twelve Monkeys (1995)',
+ 'Jerry Maguire (1996)',
+ 'Raising Arizona (1987)',
+ 'Godfather, The (1972)',
+ 'Rock, The (1996)',
+ 'Fugitive, The (1993)']
+```
+
+ - Movie Recommendation using KNN with Input as Movie Name and Number of movies you want to get recommended:
+ 
+ Reshaping model in such a way that each movie has n-dimensional rating space where n is total number of users who could rate.
+
+We will train the KNN model inorder to find the closely matching similar movies to the movie we give as input and we recommend the top movies which would more closely align to the movie we have given.
+
+For this section, a separate list for movie names and also case insensitive movie names and a dictionary which maps movie name with the index are created.
+
+Basic output of this recommender system using KNN:
+```
+Top 10 movies which are very much similar to the Movie- 101 Dalmatians (1996) are: 
+ 
+Jack (1996)
+Twister (1996)
+Willy Wonka and the Chocolate Factory (1971)
+Independence Day (ID4) (1996)
+Toy Story (1995)
+Father of the Bride Part II (1995)
+Hunchback of Notre Dame, The (1996)
+Lion King, The (1994)
+Mrs. Doubtfire (1993)
+Jungle Book, The (1994)
+```
+
+**Key Challenge** which needs to be addressed in this segment is not recommending the similar movie names, *it is to let the user give the movie name with correct spelling*
+
+To address this challenge, a new functionality has been written.
+
+#### Dynamic movie name Suggestions for the User (through User Interface)
+
+A functionality was designed to *dynamically suggesting movie name* from the existing movie corpus we have, based on the user input using try and except architecture.
+
+A function which outputs movie names as suggestion when the user mis spells the movie name. User might have intended to type any of these movie names.
+
+This function provides user with movie name suggestions if movie name is mis-spelled or Recommends similar movies to the input movie if the movie name is valid.
+
+Results of the Recommender System built using KNN along with Dynamic Suggestor:
+```
+Enter the Movie name: back
+
+Entered Movie name is not matching with any movie from the dataset . Please check the below suggestions :
+ ['Back to the Future (1985)', 'Backbeat (1993)', 'Best of the Best 3: No Turning Back (1995)', 'Empire Strikes Back, The (1980)', 'Hunchback of Notre Dame, The (1996)', 'Switchback (1997)'] 
+Enter the Movie name: Empire Strikes Back, The (1980)
+
+Enter Number of movie recommendations needed: 15
+
+Top 15 movies which are very much similar to the Movie- Empire Strikes Back, The (1980) are: 
+ 
+Raiders of the Lost Ark (1981)
+Indiana Jones and the Last Crusade (1989)
+Back to the Future (1985)
+Star Wars (1977)
+Terminator, The (1984)
+Return of the Jedi (1983)
+Terminator 2: Judgment Day (1991)
+Princess Bride, The (1987)
+Jurassic Park (1993)
+Fugitive, The (1993)
+Silence of the Lambs, The (1991)
+E.T. the Extra-Terrestrial (1982)
+Star Trek: The Wrath of Khan (1982)
+Alien (1979)
+Blade Runner (1982)
+```
+
+**Observations:** on above built KNN Recommender System:
+
+An interesting observation would be that the above KNN model for movies recommends movies that are produced in very similar years of the input movie. However, the cosine distance of all those recommendations are observed to be actually quite small. This might be because there are too many zero values in our movie-user matrix. With too many zero values in our data, the data sparsity becomes a real issue for KNN model and the distance in KNN model starts to fall apart. 
+
+
+## [Recommender System using SVD (Singular Value Decomposition)](https://github.com/rposhala/Recommender-System-on-MovieLens-dataset/blob/main/Recommender_System_using_SVD.ipynb)
+......continue.....
