@@ -17,17 +17,16 @@ Knowledge-based, Content-based and Collaborative Recommender systems are built o
  - [About DataSet](#about-dataset-used)
  
  - [Data Visualizations and Manipulations](#Data-Visualizations-and-Manipulations)
-    - Dataframes formed and used
-    - [Reshaping the dataframe](#reshaping-the-dataframe-to-make-it-compatible-for-knn-algorithm-implementation)
+ 	- Dataframes formed and used
+ 	- [Reshaping the dataframe](#reshaping-the-dataframe-to-make-it-compatible-for-knn-algorithm-implementation)
 
 - Movie Recommender System Development
-
-  - [Knowledge based Recommender System](#knowledge-based-recommender-system)
-  - [Movie Recommendation Engine Development with KNN](#item-based-collaborative-recommender-system-using-knn)
-        - [Movie Recommender System for a User](#movie-recommender-system-for-a-user)
-        - [Movie Recommender System using Movie Name](#movie-recommender-system-using-movie-name) with 
-                 - [Dynamic movie name Suggestor](#dynamic-movie-name-suggestor)
-  - [Recommender System using Singular Value Decomposition(SVD)](#recommender-system-using-svd)
+	- [Knowledge based Recommender System](#knowledge-based-recommender-system)
+	- [Movie Recommendation Engine Development with KNN](#item-based-collaborative-recommender-system-using-knn)
+  		- [Movie Recommender System for a User](#movie-recommender-system-for-a-user)
+  		- [Movie Recommender System using Movie Name](#movie-recommender-system-using-movie-name) 
+        		- Along with [Dynamic movie name Suggestor](#dynamic-movie-name-suggestor)
+	- [Recommender System using Singular Value Decomposition(SVD)](#recommender-system-using-svd)
   
 
 ![GitHub Logo](Images/netflix-recommendation-s.jpeg)
