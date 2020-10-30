@@ -24,11 +24,11 @@ Knowledge-based, Content-based and Collaborative Recommender systems are built o
 
   - [Knowledge based Recommender System](#knowledge-based-recommender-system)
   - [Movie Recommendation Engine Development with KNN](#item-based-collaborative-recommender-system-using-knn)
-   - [Movie Recommender System for a User](#movie-recommender-system-for-a-user)
-   - [Movie Recommender System using Movie Name](#movie-recommender-system-using-movie-name)
-    - [Dynamic movie name Suggestor](#dynamic-movie-name-suggestor)
+        - [Movie Recommender System for a User](#movie-recommender-system-for-a-user)
+        - [Movie Recommender System using Movie Name](#movie-recommender-system-using-movie-name)
+              - [Dynamic movie name Suggestor](#dynamic-movie-name-suggestor)
     
-  - [[Recommender System using Singular Value Decomposition(SVD)]](#[recommender-system-using-svd)
+  - [Recommender System using Singular Value Decomposition(SVD)](#[recommender-system-using-svd)
   
 
 ![GitHub Logo](Images/netflix-recommendation-s.jpeg)
@@ -73,6 +73,8 @@ In this project, three of the above recommender systems were build using differe
 * User Inconvinience with spelling while giving movie names as input (can't expect to give exact movie name everytime)
 * scalability (computation grows as number of users and items grow)
 * pool relationship between like-minded yet sparse users
+
+![GitHub Logo](Images/long-tail.png)
 
 Above chart is the distribution of item rating frequency. This distribution often satisfies a property in real-world settings, which is referred to as [the long-tail property [1]](https://www.springer.com/cda/content/document/cda_downloaddocument/9783319296579-c1.pdf?SGWID=0-0-45-1554478-p179516130). According to this property, only a small fraction of the items are rated frequently. Such items are referred to as popular items. The vast majority of items are rated rarely. 
 
