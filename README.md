@@ -281,9 +281,9 @@ Finally, we transform the values of the dataframe into a scipy sparse matrix for
 
 This dataframe is then fed into a KNN model.
 
-**Two types of Collaborative recommendations are done using KNN algorithm in this project:**
+**Two types of Collaborative recommendations are done using KNN algorithm in this project are:
 
- - Movie Recommendation using KNN with Input as User id, Number of similar users should the model pick and Number of movies you want to get recommended:
+ - **Movie Recommendation using KNN with Input as User id, Number of similar users should the model pick and Number of movies you want to get recommended:
  
  Reshaping the dataframe in such a way that each user has n-dimensional rating space where n is total number of movies
 
@@ -365,7 +365,7 @@ Movies recommended based on similar users are:
  'Fugitive, The (1993)']
 ```
 
- - Movie Recommendation using KNN with Input as Movie Name and Number of movies you want to get recommended:
+ - **Movie Recommendation using KNN with Input as Movie Name and Number of movies you want to get recommended:**
  
  Reshaping model in such a way that each movie has n-dimensional rating space where n is total number of users who could rate.
 
