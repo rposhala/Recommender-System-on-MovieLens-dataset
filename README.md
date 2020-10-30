@@ -2,7 +2,7 @@
 ## Project Overview
 Knowledge-based, Content-based and Collaborative Recommender systems are built on MovieLens dataset with 100,000 movie ratings using Pandas operations and by fitting KNN, SVD & deep learning models along with NLP techniques usage to suggest movies for the users based on similar users and for queries specific to genre, user, movie, rating, popularity.
 
-![GitHub Logo](Images/netflix-recommendation-s.JPEG)
+![GitHub Logo](Images/netflix-recommendation-s.jpeg)
 Format: ![Alt Text](url)
 
 ## Recommender System Overview
@@ -19,7 +19,7 @@ There are majorly six types of recommender systems which work primarily in the M
 - Utility based recommender system
 
 
-![GitHub Logo](Images/coll-cont-pic.PNG)
+![GitHub Logo](Images/coll-cont-pic.png)
 Format: ![Alt Text](url)
 
 Recommender System is a vast concept rooted from a base idea of giving out suggestions to the users. There are wide range of algorithms are used to build a recommender system and the type of recommender system used is mostly dictated by the type of data available. In this project, first three of the above recommender systems were built.
