@@ -63,7 +63,6 @@ Data has been loaded into dataframes using pandas. It had been analyzed and visu
 
 
 ![GitHub Logo](Images/bar-plot.PNG)
-Format: ![Alt Text](url)
 
 Observation: We can observe that most of the users have rewarded movies they watched with a 4 star rating and followed by 3 star and 5 star.
 
@@ -71,13 +70,11 @@ The same has been displayed below using a pie chart to understand the constribut
 
 
 ![GitHub Logo](Images/pie.PNG)
-Format: ![Alt Text](url)
 
 Genre based number of movies count is being plotted using bar-graph:
 
 
 ![GitHub Logo](Images/genre-bar-plot.PNG)
-Format: ![Alt Text](url)
 
 We can see that most of the movies belong to movie genre : Drama followed by Comedy then Action, Romance and Thriller
 
