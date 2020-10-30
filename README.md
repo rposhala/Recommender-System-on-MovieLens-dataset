@@ -50,3 +50,22 @@ About few components loaded from the package which are used in this project:
   The last 19 fields are the genres, a 1 indicates the movie is of that genre, a 0 indicates it is not; movies can be in several genres at once.The movie ids are the ones used in the u.data data set.
   - u.genre    -- A list of the genres.
 
+## Data Visualizations and Manipulations
+
+Data has been loaded into dataframes using pandas. It had been analyzed and visualized to draw some key insights before going further into recommendations.
+
+
+Observation: We can observe that most of the users have rewarded movies they watched with a 4 star rating and followed by 3 star and 5 star.
+
+The same has been displayed below using a pie chart to understand the constributions.
+
+Genre based number of movies count is being plotted using bar-graph:
+
+We can see that most of the movies belong to movie genre : Drama followed by Comedy then Action, Romance and Thriller
+
+It had been observed 
+
+## Knowledge based Recommender System
+
+Recommendations are made based on the 
+
