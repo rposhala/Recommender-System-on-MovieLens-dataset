@@ -64,9 +64,9 @@ Genre based number of movies count is being plotted using bar-graph:
 We can see that most of the movies belong to movie genre : Drama followed by Comedy then Action, Romance and Thriller
 
 #### Dataframes formed and used: 
-items_dataset (movie id, movie name, and all genres); dataset (user id, movie id, rating); movie_dataset is a subset of items_dataset (it has movie id, movie name); Both movie_dataset and dataset are merged based on movie id and new merged_dataset is formed (user id, movie id, rating, movie name); a new dataframe is formed by averaging the overall rating available to a movie from the merged_dataset, are sorted with descending order of ratings and is named avg_rating_dataset (movie name, avg rating); 
+items_dataset (movie id, movie name, and all genres); dataset (user id, movie id, rating); movie_dataset is a subset of items_dataset (it has movie id, movie name); Both movie_dataset and dataset are merged based on movie id and new merged_dataset is formed (user id, movie id, rating, movie name); a new dataframe is formed by averaging the overall rating available to a movie from the merged_dataset, are sorted with descending order of ratings and is named avg_rating_dataset (movie name, avg rating); There are few movie titles which have multiple movie id's causing duplicate combinations of movie id & title, these duplicate entries are caused when an user gives rating to a movie more than one time. These duplicate ratings are merged into single row by averaging the available ratings.
 
-### [Knowledge based Recommender System](https://github.com/rposhala/Recommender-System-on-MovieLens-dataset/blob/main/Knowledge_based_Recommender_System.ipynb)
+## [Knowledge based Recommender System](https://github.com/rposhala/Recommender-System-on-MovieLens-dataset/blob/main/Knowledge_based_Recommender_System.ipynb)
 
 Recommendations are made based on the available items and their corresponding ratings data, considering we have no user data available.
 
@@ -236,6 +236,64 @@ These have rating more than  2.5  with atleast  100  viewers.
 ****************************     ******************************     ******************************
 ```
 Rating frequency as bar plot, movie recommendation based on only high ratings, only popularity and high rated popular movie for each movie genre separately.
+
 *The thresholds for ratings and number of viewers for a movie to be considered for high rated popular movie catedory are selected dynamically based on the total viewers and it these limits differ from genre to genre*
 
 
+## [Item based Collaborative Recommender System using KNN](https://github.com/rposhala/Recommender-System-on-MovieLens-dataset/blob/main/Item_based_Collaborative_Recommender_System_using_KNN.ipynb)
+
+KNN algorithm is used to determine the corresponding similar movie or a user based on cosine similarity. K value is defined and desired number of nearest neighboring movies/users are returned.
+
+Datasets are loaded and similar EDA was performed as described above. A new dataset is created from the existing merged dataset by grouping the unique user id and movie title combination and the ratings by a user to the same movie in different instances (timestamps) are averaged and stored in the new dataset.
+
+An example of a multiple rating scenario by an user to a specific movie:
+```
+user id	movie id      rating	timestamp	movie title
+894	246		4	882404137	Chasing Amy (1997)
+894	268		3	879896041	Chasing Amy (1997)
+```
+
+For a KNN algorithm to implement, we have to form a matrix from the available data. 
+
+From the EDA, we have observed that there are huge number of missing ratings. The matrix formed would be a sparse matrix with most of the entries having 0 in it.
+
+#### Reshaping the dataframe to make it compatible for KNN algorithm implementation
+We need to transform (reshape in this case) the data in such a way that each row of the dataframe represents a movie and each column represents a different user. So we want the data to be [movies, users] array if movie is the subject where similar movies must be found and [users, movies] array for reverse.
+
+To reshape the dataframe, we will pivot the dataframe to the wide format with movies as rows and users as columns. As we know that not all users watch all the movies, we can expect a lot of missing values. We will have to fill those missing observations with 0s since we are going to perform linear algebra operations (calculating distances between vectors).
+
+Finally, we transform the values of the dataframe into a scipy sparse matrix for most efficient calculations.
+
+This dataframe is then fed into a KNN model.
+
+**Two types of Collaborative recommendations are done using KNN algorithm in this project:**
+
+ - Movie Recommendation using KNN with Input as User id, Number of similar users should the model pick and Number of movies you want to get recommended:
+ 
+ Reshaping the dataframe in such a way that each user has n-dimensional rating space where n is total number of movies
+
+We will train the KNN model inorder to find the closely matching similar users to the user we give as input and we recommend the top movies which would interest the input user.
+
+	- Picking similar users for a given input User id.
+	With the help of the KNN model built, we could get desired number of top similar users. For example, lets's consider User: 778
+	
+	```
+	 Few of movies seen by the User:
+['Amityville Horror, The (1979)',
+ 'Angels in the Outfield (1994)',
+ 'Apocalypse Now (1979)',
+ 'Apollo 13 (1995)',
+ 'Austin Powers: International Man of Mystery (1997)',
+ 'Babe (1995)',
+ 'Back to the Future (1985)',
+ 'Blues Brothers, The (1980)',
+ 'Chasing Amy (1997)',
+ 'Clerks (1994)']
+Top 5 users who are very much similar to the User- 778 are: 
+ 
+1 . User: 124 separated by distance of 0.4586649429539592
+2 . User: 933 separated by distance of 0.5581959868865324
+3 . User: 56 separated by distance of 0.5858413112292744
+4 . User: 738 separated by distance of 0.5916272517988691
+5 . User: 653 separated by distance of 0.5991479757406326
+```
