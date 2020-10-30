@@ -66,7 +66,7 @@ We can see that most of the movies belong to movie genre : Drama followed by Com
 #### Dataframes formed and used: 
 items_dataset (movie id, movie name, and all genres); dataset (user id, movie id, rating); movie_dataset is a subset of items_dataset (it has movie id, movie name); Both movie_dataset and dataset are merged based on movie id and new merged_dataset is formed (user id, movie id, rating, movie name); a new dataframe is formed by averaging the overall rating available to a movie from the merged_dataset, are sorted with descending order of ratings and is named avg_rating_dataset (movie name, avg rating); 
 
-## Knowledge based Recommender System
+### [Knowledge based Recommender System](https://github.com/rposhala/Recommender-System-on-MovieLens-dataset/blob/main/Knowledge_based_Recommender_System.ipynb)
 
 Recommendations are made based on the available items and their corresponding ratings data, considering we have no user data available.
 
@@ -134,7 +134,7 @@ These movies are the best to suggest to a new user as they are popular and well 
  
  For every genre, Genre wise ratings are plotted using bar plot and the above mentioned three types of movie recommendations are given out in specific to the selected genre.
  
- Below are the two such examples for genres: Action and Children
+ Below are the two such examples for genres: Action and Animation
  
  ```
  ****************************     ****** GENRE:  Action  ******     ******************************
@@ -185,53 +185,57 @@ These have rating more than  4.0  with atleast  250  viewers.
 ****************************     ******************************     ******************************
 ```
 ```
-****************************     ****** GENRE:  Children  ******     ******************************
-Total number of users watched this Genre:  7182
+****************************     ****** GENRE:  Animation  ******     ******************************
+Total number of users watched this Genre:  3605
   
-These are the top movies that can be naviely suggested to the new users for the requested movie genre: Children . Recommendations based on top average ratings.
-                                               rating
-movie title                                          
-Star Kid (1997)                              5.000000
-Wizard of Oz, The (1939)                     4.077236
-Babe (1995)                                  3.995434
-Toy Story (1995)                             3.878319
-E.T. the Extra-Terrestrial (1982)            3.833333
-Aladdin (1992)                               3.812785
-Winnie the Pooh and the Blustery Day (1968)  3.800000
-Beauty and the Beast (1991)                  3.792079
-Lion King, The (1994)                        3.781818
-Fantasia (1940)                              3.770115
+These are the top movies that can be naviely suggested to the new users for the requested movie genre: Animation . Recommendations based on top average ratings.
+                                                      rating
+movie title                                                 
+Close Shave, A (1995)                               4.491071
+Wrong Trousers, The (1993)                          4.466102
+Wallace & Gromit: The Best of Aardman Animation...  4.447761
+Faust (1994)                                        4.200000
+Grand Day Out, A (1992)                             4.106061
+Toy Story (1995)                                    3.878319
+Aladdin (1992)                                      3.812785
+Winnie the Pooh and the Blustery Day (1968)         3.800000
+Beauty and the Beast (1991)                         3.792079
+Lion King, The (1994)                               3.781818
 ****************************     ******************************     ******************************
-These are the most popular movies which can be recommended to a new user in Children genre. Recommendations based on Popularity
-                                    movie title  Number of Users watched
-0                              Toy Story (1995)                      452
-1  Willy Wonka and the Chocolate Factory (1971)                      326
-2             E.T. the Extra-Terrestrial (1982)                      300
-3                      Wizard of Oz, The (1939)                      246
-4                         Lion King, The (1994)                      220
-5                                   Babe (1995)                      219
-6                                Aladdin (1992)                      219
-7                   Beauty and the Beast (1991)                      202
-8                          Fly Away Home (1996)                      180
-9                           Mary Poppins (1964)                      178
+These are the most popular movies which can be recommended to a new user in Animation genre. Recommendations based on Popularity
+                              movie title  Number of Users watched
+0                        Toy Story (1995)                      452
+1                   Lion King, The (1994)                      220
+2                          Aladdin (1992)                      219
+3             Beauty and the Beast (1991)                      202
+4                         Fantasia (1940)                      174
+5  Snow White and the Seven Dwarfs (1937)                      172
+6  Beavis and Butt-head Do America (1996)                      156
+7                       Cinderella (1950)                      129
+8     Hunchback of Notre Dame, The (1996)                      127
+9        James and the Giant Peach (1996)                      126
 ****************************     ******************************     ******************************
 These movies are the best to suggest to a new user within their requested genre as they are popular and well rated by the users who already watched them.
-These have rating more than  3.0  with atleast  150  viewers.
+These have rating more than  2.5  with atleast  100  viewers.
 **Recommendations based popularity and rating. These are top rated popular movies**
-                                     movie title  ...  Number of Users watched
-1                       Wizard of Oz, The (1939)  ...                      246
-2                                    Babe (1995)  ...                      219
-3                               Toy Story (1995)  ...                      452
-4              E.T. the Extra-Terrestrial (1982)  ...                      300
-5                                 Aladdin (1992)  ...                      219
-7                    Beauty and the Beast (1991)  ...                      202
-8                          Lion King, The (1994)  ...                      220
-9                                Fantasia (1940)  ...                      174
-10                           Mary Poppins (1964)  ...                      178
-11        Snow White and the Seven Dwarfs (1937)  ...                      172
-15  Willy Wonka and the Chocolate Factory (1971)  ...                      326
-16                          Fly Away Home (1996)  ...                      180
-
-[12 rows x 3 columns]
+                               movie title    rating  Number of Users watched
+0                    Close Shave, A (1995)  4.491071                      112
+1               Wrong Trousers, The (1993)  4.466102                      118
+5                         Toy Story (1995)  3.878319                      452
+6                           Aladdin (1992)  3.812785                      219
+8              Beauty and the Beast (1991)  3.792079                      202
+9                    Lion King, The (1994)  3.781818                      220
+10                         Fantasia (1940)  3.770115                      174
+11  Snow White and the Seven Dwarfs (1937)  3.709302                      172
+12                        Pinocchio (1940)  3.673267                      101
+15                       Cinderella (1950)  3.581395                      129
+17                            Dumbo (1941)  3.495935                      123
+20     Hunchback of Notre Dame, The (1996)  3.377953                      127
+26        James and the Giant Peach (1996)  3.126984                      126
+33  Beavis and Butt-head Do America (1996)  2.788462                      156
 ****************************     ******************************     ******************************
 ```
+Rating frequency as bar plot, movie recommendation based on only high ratings, only popularity and high rated popular movie for each movie genre separately.
+*The thresholds for ratings and number of viewers for a movie to be considered for high rated popular movie catedory are selected dynamically based on the total viewers and it these limits differ from genre to genre*
+
+
