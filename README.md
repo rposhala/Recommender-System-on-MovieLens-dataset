@@ -12,7 +12,6 @@ Knowledge-based, Content-based and Collaborative Recommender systems are built o
    - [Knowledge based Recommender System](#knowledge-based-recommender-systems)
    - [Hybrid Recommender](#hybrid-recommender-system)
    - [Common Challenges](#common-challenges)
-   - [Solution](#solution)
    
  - [About DataSet](#about-dataset-used)
  
@@ -488,4 +487,34 @@ An interesting observation would be that the above KNN model for movies recommen
 
 
 ## [Recommender System using SVD](https://github.com/rposhala/Recommender-System-on-MovieLens-dataset/blob/main/Recommender_System_using_SVD.ipynb)
-......continue.....
+
+Matrix Factorization is simply a mathematical operation for matrices. It is usually more effective in collaborative filtering, because it allows us to discover the latent (hidden) features underlying the interactions between users and items (movies).
+
+Utility matrix has been formed from the existing merged dataframe and normalized across the entity (movie or user) with which you want find the similarity.
+
+Singular Value Decomposition is done on utility matrix and latent features of rows and columns (movies and users in this case). In SVD decomposition, Where A is a m x n utility matrix, U is a m x r orthogonal left singular matrix, which represents the relationship between users and latent factors, S is a r x r diagonal matrix, which describes the strength of each latent factor and V is a r x n diagonal right singular matrix, which indicates the similarity between items and latent factors. The latent factors here are the characteristics of the items, for example, the genre of the music. The SVD decreases the dimension of the utility matrix A by extracting its latent factors. It maps each user and each item into a r-dimensional latent space. This mapping facilitates a clear representation of relationships between users and items/movies.
+
+A function is defined to calculate the cosine similarity on the given dataframe and extracting requesting number of closely matched movie indices with the help of numpy einsum which valuates the Einstein summation convention on the operands. Dynamic movie name suggestor discussed above is also used as part of user interactive interface.
+
+Movie Recommendations using SVD giving a movie name as input:
+
+```
+Enter the Movie name: dal
+Entered Movie name is not matching with any movie from the dataset . Please check the below suggestions :
+ ['101 Dalmatians (1996)', 'Mrs. Dalloway (1997)']
+Enter the Movie name: 101 Dalmatians (1996)
+
+Enter Number of movie recommendations needed: 10
+Top 10 movies which are very much similar to the Movie- 101 Dalmatians (1996) are: 
+ 
+Black Beauty (1994)
+Free Willy 2: The Adventure Home (1995)
+Evening Star, The (1996)
+Robin Hood: Men in Tights (1993)
+Cool Runnings (1993)
+Turbo: A Power Rangers Movie (1997)
+Remains of the Day, The (1993)
+City Hall (1996)
+Children of the Corn: The Gathering (1996)
+```
+
