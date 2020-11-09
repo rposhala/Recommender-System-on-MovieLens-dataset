@@ -26,6 +26,7 @@ Knowledge-based, Content-based and Collaborative Recommender systems are built o
   		- [Movie Recommender System using Movie Name](#movie-recommender-system-using-movie-name) 
         		- Along with [Dynamic movie name Suggestor](#dynamic-movie-name-suggestor)
 	- [Recommender System using Singular Value Decomposition(SVD)](#recommender-system-using-svd)
+	- [Recommender System using Deep Neural Network (DNN) models](#recommender-system-using-deep-neural-networks)
   
 
 ![GitHub Logo](Images/netflix-recommendation-s.jpeg)
@@ -520,10 +521,15 @@ City Hall (1996)
 Children of the Corn: The Gathering (1996)
 ```
 
-#### Limitations of Matrix factorization trchniques
+#### Limitations of Matrix factorization techniques
 Some limitations of matrix factorization include:
 
  * The difficulty of using side features (that is, any features beyond the query ID/item ID). As a result, the model can only be queried with a user or item present in the training set.
  * Relevance of recommendations. Popular items tend to be recommended for everyone, especially when using dot product as a similarity measure. It is better to capture specific user interests.
  * The matrix factorization also had the cold start problem due to the fact that it had no feature vector or embedding for the new items.
  * Matrix factorization works on the simple inner product of the User and item feature embeddings, it is often not enough to capture and represent the complex relations in the user and items.
+ 
+## Recommender System using Deep Neural Networks
+
+#### Introduction
+The above mentioned limitations of matrix factorization can be addressed with the help of Deep Neural Network (DNN) models. Due to flexibility of the input layer of network, DNNs can easily incorporate query features and item features which can help capture the specific interests of a user and improve the relevance of recommendations.
