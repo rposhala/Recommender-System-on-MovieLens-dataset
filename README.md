@@ -26,7 +26,7 @@ Knowledge-based, Content-based and Collaborative Recommender systems are built o
   		- [Movie Recommender System using Movie Name](#movie-recommender-system-using-movie-name) 
         		- Along with [Dynamic movie name Suggestor](#dynamic-movie-name-suggestor)
 	- [Recommender System using Singular Value Decomposition(SVD)](#recommender-system-using-svd)
-	- [Recommender System using Deep Neural Network (DNN) models](#recommender-system-using-deep-neural-networks)
+	- [Recommender System using Deep Neural Network (DNN) models](#recommender-system-using-softmax-deep-neural-networks)
   
 
 ![GitHub Logo](Images/netflix-recommendation-s.jpeg)
@@ -529,20 +529,20 @@ Some limitations of matrix factorization include:
  * The matrix factorization also had the cold start problem due to the fact that it had no feature vector or embedding for the new items.
  * Matrix factorization works on the simple inner product of the User and item feature embeddings, it is often not enough to capture and represent the complex relations in the user and items.
  
-## Recommender System using Deep Neural Networks
+## [Recommender System using Softmax Deep Neural Networks](https://github.com/rposhala/Recommender-System-on-MovieLens-dataset/blob/main/Recommender_System_using_Softmax_DNN.ipynb)
 
 #### Introduction
 The above mentioned limitations of matrix factorization can be addressed with the help of Deep Neural Network (DNN) models. Due to flexibility of the input layer of network, DNNs can easily incorporate query features and item features which can help capture the specific interests of a user and improve the relevance of recommendations.
 
 There are different types of Deep Neural Networks applications like DNN with Softmax layer, DNN with Autoencoder architecture or may it be Recommender System with Wide & Deep Neural Networks that can be applied to Recommender Systems for better movies to recommend.
 
-For this project, Softmax Deep Neural Networks are used to recommend movies. Users and Movies are one-hot encoded and fed into the Deep Neural Network as different distinct inputs and ratings are given as output.
+For this project, **Softmax Deep Neural Networks** are used to recommend movies. Users and Movies are one-hot encoded and fed into the Deep Neural Network as different distinct inputs and ratings are given as output.
 
 Deep Neural Network model was built by extracting the latent features of Users and movies with the help of Embedding layers and then Dense layers with dropouts were stacked in the end and finally a Dense layer with 9 neurons (one for each possible rating from 1 to 5) with a Softmax activation function was added.
 
 Hyperparmeters of the model were tuning, many loss functions and optimizers were tried with minimum validation loss as metric to built the model and get the weights.
 
-Finally, 'SGD' for optimizer and Sparse Categorical Crossentropy for loss function were picked.
+Finally, 'SGD' for optimizer and **Sparse Categorical Crossentropy** for loss function were picked.
 
 #### Movie Recommendations:
 User id is taken as input from the User. Then the movie ids which were not already seen by extracted from the available dataframe.
@@ -551,7 +551,7 @@ How this DNN model works is, it takes two inputs, one of the input has user id's
 
 DNN model is used to predict the ratings of the unseen movies.
 
-Predicted Ratings:
+**Predicted Ratings:**
 ````
 [[6.28711879e-01 3.71125787e-01 1.93846718e-05 ... 2.48171236e-05
   2.07571484e-05 3.11595759e-05]
@@ -568,7 +568,7 @@ array([0.6287119, 0.5161964, 0.8921049, ..., 0.6535648, 0.577208 ,
 ````
 These predicted psuedo-ratings of the user for the unseen movies are sorted with highest ratings in the first and these labels are inverse transformed to get desired number of Movie names.
 
-Movie Recommendations using Softmax Deep Neural Network given user name as input:
+**Movie Recommendations using Softmax Deep Neural Network given user name as input:**
 
 ````
 Enter user id
