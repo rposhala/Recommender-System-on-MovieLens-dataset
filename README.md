@@ -533,3 +533,109 @@ Some limitations of matrix factorization include:
 
 #### Introduction
 The above mentioned limitations of matrix factorization can be addressed with the help of Deep Neural Network (DNN) models. Due to flexibility of the input layer of network, DNNs can easily incorporate query features and item features which can help capture the specific interests of a user and improve the relevance of recommendations.
+
+There are different types of Deep Neural Networks applications like DNN with Softmax layer, DNN with Autoencoder architecture or may it be Recommender System with Wide & Deep Neural Networks that can be applied to Recommender Systems for better movies to recommend.
+
+For this project, Softmax Deep Neural Networks are used to recommend movies. Users and Movies are one-hot encoded and fed into the Deep Neural Network as different distinct inputs and ratings are given as output.
+
+Deep Neural Network model was built by extracting the latent features of Users and movies with the help of Embedding layers and then Dense layers with dropouts were stacked in the end and finally a Dense layer with 9 neurons (one for each possible rating from 1 to 5) with a Softmax activation function was added.
+
+Hyperparmeters of the model were tuning, many loss functions and optimizers were tried with minimum validation loss as metric to built the model and get the weights.
+
+Finally, 'SGD' for optimizer and Sparse Categorical Crossentropy for loss function were picked.
+
+#### Movie Recommendations:
+User id is taken as input from the User. Then the movie ids which were not already seen by extracted from the available dataframe.
+
+How this DNN model works is, it takes two inputs, one of the input has user id's and the other has corresponding movie id's. Here DNN model tries to predict the ratings of the user - movie combination. So, we can input a specific user id (broadcasting it with the size of other input) and unseen movie id of the user and expect the model to give the ratings of the movies which would have been the ratings given by the user. Here, the ratings are already normalized and as we need the movies which interest the user more, ratings are not brought back to 0-5 scale.
+
+DNN model is used to predict the ratings of the unseen movies.
+
+Predicted Ratings:
+````
+[[6.28711879e-01 3.71125787e-01 1.93846718e-05 ... 2.48171236e-05
+  2.07571484e-05 3.11595759e-05]
+ [5.16196430e-01 4.83636826e-01 2.06636632e-05 ... 2.40022491e-05
+  2.14833890e-05 3.09596326e-05]
+ ...
+ [6.53564811e-01 3.46285373e-01 1.90432311e-05 ... 2.25746426e-05
+  1.92296520e-05 2.91551714e-05]]
+````
+Output is of shape (1628, 9). We got probability of each possible rating from 1 to 5. We can extract specific rating which user would have given to a movie but it is not useful for these recommendations now.
+````
+array([0.6287119, 0.5161964, 0.8921049, ..., 0.6535648, 0.577208 ,
+       0.6869574], dtype=float32)
+````
+These predicted psuedo-ratings of the user for the unseen movies are sorted with highest ratings in the first and these labels are inverse transformed to get desired number of Movie names.
+
+Movie Recommendations using Softmax Deep Neural Network given user name as input:
+
+````
+Enter user id
+307
+Enter number of movies to be recommended:
+15
+Movie seen by the User:
+['12 Angry Men (1957)',
+ '2001: A Space Odyssey (1968)',
+ 'Abyss, The (1989)',
+ 'Alien (1979)',
+ 'Apollo 13 (1995)',
+ 'Boot, Das (1981)',
+ 'Brady Bunch Movie, The (1995)',
+ 'Braveheart (1995)',
+ 'Brazil (1985)',
+ 'Casablanca (1942)',
+ 'Close Shave, A (1995)',
+ 'Contact (1997)',
+ 'E.T. the Extra-Terrestrial (1982)',
+ 'Empire Strikes Back, The (1980)',
+ 'English Patient, The (1996)',
+ 'Englishman Who Went Up a Hill, But Came Down a Mountain, The (1995)',
+ 'Escape from L.A. (1996)',
+ 'Fargo (1996)',
+...
+...
+ 'Sex, Lies, and Videotape (1989)',
+ 'Shadowlands (1993)',
+ 'Shawshank Redemption, The (1994)',
+ 'Shining, The (1980)',
+ 'Sneakers (1992)',
+ 'Snow White and the Seven Dwarfs (1937)',
+ 'Sound of Music, The (1965)',
+ 'Stand by Me (1986)',
+ 'Star Trek III: The Search for Spock (1984)',
+ 'Star Trek IV: The Voyage Home (1986)',
+ 'Star Trek: The Motion Picture (1979)',
+ 'Star Trek: The Wrath of Khan (1982)',
+ 'Star Wars (1977)',
+ 'Stargate (1994)',
+ 'Tank Girl (1995)',
+ 'Terminator, The (1984)',
+ 'This Is Spinal Tap (1984)',
+ 'Titanic (1997)',
+ 'To Kill a Mockingbird (1962)',
+ 'Top Gun (1986)',
+ 'Toy Story (1995)',
+ 'Wallace & Gromit: The Best of Aardman Animation (1996)',
+ 'Wizard of Oz, The (1939)',
+ 'Wrong Trousers, The (1993)']
+````
+````
+Top 15 Movie recommendations for the User 307 are:
+['Speed 2: Cruise Control (1997)',
+ 'Houseguest (1994)',
+ 'Batman & Robin (1997)',
+ 'Magic Hour, The (1998)',
+ "Devil's Advocate, The (1997)",
+ 'Gone with the Wind (1939)',
+ 'Cobb (1994)',
+ 'Cool Runnings (1993)',
+ 'Independence Day (ID4) (1996)',
+ 'Smoke (1995)',
+ 'Once Were Warriors (1994)',
+ 'True Romance (1993)',
+ 'Red Rock West (1992)',
+ 'Third Man, The (1949)',
+ 'MatchMaker, The (1997)']
+````
