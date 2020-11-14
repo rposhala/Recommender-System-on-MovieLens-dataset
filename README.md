@@ -568,7 +568,7 @@ array([0.6287119, 0.5161964, 0.8921049, ..., 0.6535648, 0.577208 ,
 ````
 These predicted psuedo-ratings of the user for the unseen movies are sorted with highest ratings in the first and these labels are inverse transformed to get desired number of Movie names.
 
-**Movie Recommendations using Softmax Deep Neural Network given user name as input:**
+**Movie Recommendations using Softmax Deep Neural Network given user id as input:**
 
 ````
 Enter user id
