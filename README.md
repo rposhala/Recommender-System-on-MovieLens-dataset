@@ -542,7 +542,7 @@ Deep Neural Network model was built by extracting the latent features of Users a
 
 Hyperparmeters of the model were tuning, many loss functions and optimizers were tried with minimum validation loss as metric to built the model and get the weights.
 
-Finally, 'SGD' for optimizer and **Sparse Categorical Crossentropy** for loss function were picked.
+Finally, 'SGD' for optimizer and **Sparse Categorical Cross entropy** for loss function were picked.
 
 #### Movie Recommendations:
 User id is taken as input from the User. Then the movie ids which were not already seen by extracted from the available dataframe.
@@ -566,7 +566,7 @@ Output is of shape (1628, 9). We got probability of each possible rating from 1 
 array([0.6287119, 0.5161964, 0.8921049, ..., 0.6535648, 0.577208 ,
        0.6869574], dtype=float32)
 ````
-These predicted psuedo-ratings of the user for the unseen movies are sorted with highest ratings in the first and these labels are inverse transformed to get desired number of Movie names.
+These predicted pseudo-ratings of the user for the unseen movies are sorted with highest ratings in the first and these labels are inverse transformed to get desired number of Movie names.
 
 **Movie Recommendations using Softmax Deep Neural Network given user id as input:**
 
