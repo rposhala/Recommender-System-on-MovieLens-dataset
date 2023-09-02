@@ -1,3 +1,6 @@
+## [Unrelated post - Connect with me on LinkedIn] 
+It's been almost three years since I completed this project and its documentation. Occasionally, I receive connection requests and questions from individuals on LinkedIn. Each time I return to this repository, I'm pleasantly surprised to see people taking an interest in it. This sense of community engagement warms my heart. I wholeheartedly invite all of you who stumble upon this material to connect with me on LinkedIn for any kind of clarifications or questions.
+
 # Recommender-System-on-MovieLens-dataset
 ## Project Overview
 Knowledge-based, Content-based and Collaborative Recommender systems are built on MovieLens dataset with 100,000 movie ratings. These Recommender systems were built using Pandas operations and by fitting KNN, SVD & deep learning models which use NLP techniques and NN architecture to suggest movies for the users based on similar users and for queries specific to genre, user, movie, rating, popularity.
